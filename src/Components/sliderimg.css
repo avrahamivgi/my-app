@@ -1,0 +1,14 @@
+
+  /* Media query for screens up to 768px wide */
+  @media (max-width: 768px) {
+    .responsive-carousel {
+      max-width: 470px; /* Adjust the width as needed for small screens */
+    }
+  }
+  
+  /* Media query for screens 769px and above */
+  @media (min-width: 769px) {
+    .responsive-carousel {
+      max-width: 750px; /* Adjust the width as needed for larger screens */
+    }
+  }
