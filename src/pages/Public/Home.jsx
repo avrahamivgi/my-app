@@ -1,21 +1,33 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import Carousela from '../../Components/ImageSlider'
-import { TextField} from '@mui/material'
-import genericAxios from '../../Components/genericAxios'
 import SearchBooks from '../../Components/SearchBooks'
 import "./books.css"
 
 const Home = () => {
 
-  //if the user is logged he will be redirected to User Home Page
-  if (localStorage.getItem("username")) {
-    window.location.href = '/user';
+  //user redirecting
+  const user = localStorage.getItem("userPerm")
+  
+  switch (user) {
+    case "customer":
+      window.location.href = "/user"
+      break;
+    case "worker":
+      window.location.href = "/worker"
+      break;
+    case "manager":
+      window.location.href = "/manager"
+      break;
   }
-  return (
-    <div style={{ display: "flex", justifyContent: "center", alignItems: "center", flexDirection: "column"}}>
-        <h1 style={{textAlign:"center"}}>דף הבית</h1>
+
+
+return (
+    <div style={{textAlign:"center"}}>
+      <div style={{ display: "flex", justifyContent: "center", alignItems: "center", flexDirection: "column"}}>
+      <h1 >דף הבית</h1>
         <h2>מהנעשה במקומנו</h2>
         <Carousela/>
+      </div>
         <SearchBooks/>
       </div>
   )

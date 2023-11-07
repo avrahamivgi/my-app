@@ -1,0 +1,23 @@
+.books-container {
+  display: flex;
+  flex-wrap: wrap; /* Allow wrapping to create columns */
+  justify-content: flex-start; /* Align items to the start of the container */
+  gap: 20px; /* Add some spacing between columns */
+  flex-direction: row-reverse;
+}
+
+.book-card {
+  flex: 0 0 calc(25% - 20px); /* Create columns with a width of about 25% and account for the gap */
+  max-width: 150px; /* Limit the maximum width of each card */
+  background-color: #f9f9f9; /* Add background color for each card */
+  border: 1px solid #ccc; /* Add borders to separate cards */
+  padding: 10px;
+  box-sizing: border-box;
+  text-align: center; /* Center align the content */
+}
+
+.book-cover {
+  max-width: 100%; /* Ensure the book cover image fits within the card */
+  height: auto; /* Maintain the aspect ratio of the book cover */
+}
+

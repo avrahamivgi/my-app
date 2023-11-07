@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
 import { Modal,TextField, Box , Typography , Button} from '@mui/material';
-import genericAxios from './genericAxios';
-import { useNavigate } from 'react-router-dom';
-
+import genericAxios from '../genericAxios';
+import { REACT_URL } from '../config';
 
 function LoginModal({ open, onClose }) {
     const [error,setError] = useState(false)
@@ -25,10 +24,24 @@ function LoginModal({ open, onClose }) {
         //saving the token if the call succseed
         if (data) {
             localStorage.setItem("token" , data["token"])
+            localStorage.setItem("username",username)
+            localStorage.setItem("userPerm",data["user"])
+            localStorage.setItem("userLib",data["lib"])
             console.log("login succsesfully");
             onClose(false)
-            localStorage.setItem("username",username)
-            window.location.href = '/user';
+
+
+            //redirecting based on the user permiisions
+            switch (data["user"]) {
+              case "customer":
+                window.location.href = '/user';
+                break;
+              case "worker":
+                window.location.href = '/worker';
+                break;
+              case "manager":
+                break;
+            }
 
     }else{
         setError(true)
@@ -66,3 +79,5 @@ function LoginModal({ open, onClose }) {
 }
 
 export default LoginModal;
+
+

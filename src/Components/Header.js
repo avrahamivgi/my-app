@@ -11,6 +11,8 @@ import { REACT_URL } from '../config';
 function logout() {
   localStorage.removeItem("token");
   localStorage.removeItem("username");
+  localStorage.removeItem("userPerm");
+  
   window.location.href = `${REACT_URL}`
 }
 

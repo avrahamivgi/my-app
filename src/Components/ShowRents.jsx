@@ -1,6 +1,7 @@
 import React,{useState,useEffect} from 'react'
-import genericAxios from './genericAxios'
 import { SERVER_URL_V2 } from '../config';
+import genericAxios from '../genericAxios';
+
 
 function ShowRents() {
     const [data,setData] = useState([]);

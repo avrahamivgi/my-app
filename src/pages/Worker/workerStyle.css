@@ -1,0 +1,12 @@
+
+.coolModal {
+    width: 600px;
+    padding: 20px;
+    background: white;
+    margin: 20% auto; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+}
